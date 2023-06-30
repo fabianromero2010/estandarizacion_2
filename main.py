@@ -21,7 +21,7 @@ if nombre_archivo is not None:
         for fila in lector_csv:
             linea = fila[0]  # Obtener el primer elemento de la fila como la línea a procesar
             resultado = estandarizador.estandarizar(linea)  # Obtener el resultado como una lista
-            resultado_str = " ".join(resultado)  # Convertir la lista en una cadena de texto separada por espacios
+            resultado_str = " ".join(str(item) for item in resultado)  # Convertir cada elemento en una cadena de texto
             datos += linea + '---->' + resultado_str + '\n'
 
     # Crear un DataFrame con los resultados
@@ -32,7 +32,6 @@ if nombre_archivo is not None:
     st.dataframe(df)
 else:
     st.warning("Por favor, selecciona un archivo para cargar.")
-
 
 
 
