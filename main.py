@@ -3,7 +3,7 @@ import estandarizador
 import csv
 import pandas as pd
 
-st.title("Aplicación Estandarización de archivo")
+st.title("Aplicación Estandarización de telefonos nacionales")
 
 nombre_archivo = st.file_uploader("Selecciona un archivo", type=["csv"])
 
