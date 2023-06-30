@@ -1,23 +1,35 @@
+import streamlit as st
 import estandarizador
 import csv
+import pandas as pd
 
-nombre_archivo = r"https://github.com/Alejandra-byte-pixel/estandarizacion/blob/main/telefonos.csv"
+st.title("Aplicación Estandarización de archivos")
 
-with open(nombre_archivo, "r") as archivo:
-    datos = ""
+nombre_archivo = st.file_uploader("Selecciona un archivo", type=["csv"])
 
-    lector_csv = csv.reader(archivo)
-    for fila in lector_csv:
-        linea = fila[0]  # Obtener el primer elemento de la fila como la línea a procesar
-        resultado = estandarizador.estandarizar(linea)  # Obtener el resultado como una lista
-        resultado_str = " ".join(resultado)  # Convertir la lista en una cadena de texto separada por espacios
-        datos += linea + '---->' + resultado_str + '\n'
+if nombre_archivo is not None:
+    with open(nombre_archivo, "r") as archivo:
+        datos = ""
 
-ruta_archivo = r"https://github.com/Alejandra-byte-pixel/estandarizacion/blob/main/estandarizadotelefonos.txt"
-with open(ruta_archivo, "w") as archivo_salida:
-    archivo_salida.write(datos)
+        lector_csv = csv.reader(archivo)
+        for fila in lector_csv:
+            linea = fila[0]  # Obtener el primer elemento de la fila como la línea a procesar
+            resultado = estandarizador.estandarizar(linea)  # Obtener el resultado como una lista
+            resultado_str = " ".join(resultado)  # Convertir la lista en una cadena de texto separada por espacios
+            datos += linea + '---->' + resultado_str + '\n'
+        
+        # Crear un DataFrame con los resultados
+        df = pd.DataFrame({'Resultado': datos.split('\n')})
 
-    #for n in columna:
+        # Mostrar el resultado en una tabla
+        st.write("Resultado:")
+        st.dataframe(df)
+else:
+    st.warning("Por favor, selecciona un archivo para cargar.")
+
+
+
+#for n in columna:
 
 
 
