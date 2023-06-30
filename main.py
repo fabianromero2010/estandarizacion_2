@@ -2,13 +2,19 @@ import streamlit as st
 import estandarizador
 import csv
 import pandas as pd
+import tempfile
 
 st.title("Aplicación Estandarización de archivos")
 
 nombre_archivo = st.file_uploader("Selecciona un archivo", type=["csv"])
 
 if nombre_archivo is not None:
-    with open(nombre_archivo, "r") as archivo:
+    # Guardar el archivo cargado en una ubicación temporal
+    temp_file = tempfile.NamedTemporaryFile(delete=False)
+    temp_file.write(nombre_archivo.read())
+    temp_file.close()
+
+    with open(temp_file.name, "r") as archivo:
         datos = ""
 
         lector_csv = csv.reader(archivo)
@@ -17,13 +23,13 @@ if nombre_archivo is not None:
             resultado = estandarizador.estandarizar(linea)  # Obtener el resultado como una lista
             resultado_str = " ".join(resultado)  # Convertir la lista en una cadena de texto separada por espacios
             datos += linea + '---->' + resultado_str + '\n'
-        
-        # Crear un DataFrame con los resultados
-        df = pd.DataFrame({'Resultado': datos.split('\n')})
 
-        # Mostrar el resultado en una tabla
-        st.write("Resultado:")
-        st.dataframe(df)
+    # Crear un DataFrame con los resultados
+    df = pd.DataFrame({'Resultado': datos.split('\n')})
+
+    # Mostrar el resultado en una tabla
+    st.write("Resultado:")
+    st.dataframe(df)
 else:
     st.warning("Por favor, selecciona un archivo para cargar.")
 
