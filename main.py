@@ -8,7 +8,9 @@ st.title("Aplicación Estandarización de archivos")
 nombre_archivo = st.file_uploader("Selecciona un archivo", type=["csv"])
 
 if nombre_archivo is not None:
-    with open(nombre_archivo, "r") as archivo:
+    archivo_nombre = nombre_archivo.name  # Obtener el nombre del archivo
+    
+    with open(archivo_nombre, "r") as archivo:
         datos = ""
 
         lector_csv = csv.reader(archivo)
@@ -26,6 +28,7 @@ if nombre_archivo is not None:
         st.dataframe(df)
 else:
     st.warning("Por favor, selecciona un archivo para cargar.")
+
 
 
 
