@@ -1,7 +1,7 @@
 import estandarizador
 import csv
 
-nombre_archivo = r"C:\Users\aleja\OneDrive\Documentos\Documentos\SETI\Python\Sprint_4\telefonos.csv"
+nombre_archivo = r"https://github.com/Alejandra-byte-pixel/estandarizacion/blob/main/telefonos.csv"
 
 with open(nombre_archivo, "r") as archivo:
     datos = ""
@@ -13,7 +13,7 @@ with open(nombre_archivo, "r") as archivo:
         resultado_str = " ".join(resultado)  # Convertir la lista en una cadena de texto separada por espacios
         datos += linea + '---->' + resultado_str + '\n'
 
-ruta_archivo = r"C:\Users\aleja\OneDrive\Documentos\Documentos\SETI\Python\Sprint_4\estandarizadotelefonos.txt"
+ruta_archivo = r"https://github.com/Alejandra-byte-pixel/estandarizacion/blob/main/estandarizadotelefonos.txt"
 with open(ruta_archivo, "w") as archivo_salida:
     archivo_salida.write(datos)
 
