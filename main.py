@@ -12,6 +12,7 @@ st.markdown(
         padding: 20px;
         color: white;
         width: 300px;
+        height: 100%;
         float: left;
     }
     .stMain {
