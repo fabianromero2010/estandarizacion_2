@@ -2,9 +2,16 @@ import streamlit as st
 import estandarizador
 import csv
 import pandas as pd
+import requests
 from PIL import Image
+import io
 
-image = Image.open('https://github.com/Alejandra-byte-pixel/estandarizacion/blob/main/LogoAIO.jpg')
+# Descargar la imagen desde la URL
+url = 'https://github.com/Alejandra-byte-pixel/estandarizacion/blob/main/LogoAIO.jpg'
+response = requests.get(url)
+image = Image.open(io.BytesIO(response.content))
+
+# Mostrar la imagen en tu aplicación
 st.image(image, caption='Logo AIO', use_column_width=True)
 
 
