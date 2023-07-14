@@ -68,7 +68,7 @@ if nombre_archivo is not None:
 
     # Crear botón para descargar archivo csv con estilo personalizado
     st.markdown(
-        f'<a href="data:file/csv;base64,{datos}" download="{name}.csv"><button style="background-color: black; color: white;">Descargar CSV </button></a>',
+        f'<a href="data:file/csv;base64,{datos}" download="{name}.csv"><button style="background-color: white; color: red;">Descargar CSV </button></a>',
         unsafe_allow_html=True
     )
 
