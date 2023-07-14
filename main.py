@@ -7,12 +7,12 @@ import pandas as pd
 st.markdown(
     """
     <style>
-    .stSidebar {
+    .stColumnLeft {
         background-color: #8B0000;
         padding: 20px;
         color: white;
     }
-    .stMain {
+    .stColumnRight {
         background-color: #800000;
         padding: 20px;
         color: white;
@@ -22,54 +22,55 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Columna de la izquierda (sidebar)
-st.markdown("<div class='stSidebar'>", unsafe_allow_html=True)
-st.image("LogoAIO.jpeg", caption='Logo de la aplicación', use_column_width=True)
-st.markdown("<h1 style='text-align: center;'>Cargar Archivo</h1>", unsafe_allow_html=True)
-nombre_archivo = st.file_uploader("Selecciona un archivo", type=["txt"])
-st.markdown("</div>", unsafe_allow_html=True)
+# Crear las columnas
+column_left, column_right = st.beta_columns(2)
 
-# Columna de la derecha (main)
-st.markdown("<div class='stMain'>", unsafe_allow_html=True)
-st.title("Aplicación Estandarización de teléfonos nacionales")
+# Columna de la izquierda (column_left)
+with column_left:
+    st.image("LogoAIO.jpeg", caption='Logo de la aplicación', use_column_width=True)
+    st.markdown("<h1 style='text-align: center;'>Cargar Archivo</h1>", unsafe_allow_html=True)
+    nombre_archivo = st.file_uploader("Selecciona un archivo", type=["txt"])
 
-Dataframe1 = {
-    "cadenas": [],
-    "tipo": [],
-    "indicativos_pais": [],
-    "indicativos_area": [],
-    "telefonos": []
-}
+# Columna de la derecha (column_right)
+with column_right:
+    st.title("Aplicación Estandarización de teléfonos nacionales")
 
-if nombre_archivo is not None:
-    contenido = nombre_archivo.read().decode("utf-8")  # Leer el contenido del archivo
-    name = nombre_archivo.name.split('.')[0]
+    Dataframe1 = {
+        "cadenas": [],
+        "tipo": [],
+        "indicativos_pais": [],
+        "indicativos_area": [],
+        "telefonos": []
+    }
 
-    datos = "CADENA;TIPO;INDICATIVO_PAIS;INDICATIVO_AREA;TELEFONO" + '\r\n'
-    lector_csv = csv.reader(contenido.splitlines())
+    if nombre_archivo is not None:
+        contenido = nombre_archivo.read().decode("utf-8")  # Leer el contenido del archivo
+        name = nombre_archivo.name.split('.')[0]
 
-    for fila in lector_csv:
-        linea = fila[0]  # Obtener el primer elemento de la fila como la línea a procesar
-        resultado = estandarizador.estandarizar(linea)  # Obtener el resultado como una lista
-        Dataframe1["cadenas"].append(linea)
-        Dataframe1["tipo"].append(resultado[0])
-        Dataframe1["indicativos_pais"].append(resultado[1])
-        Dataframe1["indicativos_area"].append(resultado[2])
-        Dataframe1["telefonos"].append(resultado[3])
+        datos = "CADENA;TIPO;INDICATIVO_PAIS;INDICATIVO_AREA;TELEFONO" + '\r\n'
+        lector_csv = csv.reader(contenido.splitlines())
 
-        resultado_str = linea + ";" + ";".join(str(item) for item in resultado)  # Convertir cada elemento en una cadena de texto
-        datos += resultado_str + '\r\n'
+        for fila in lector_csv:
+            linea = fila[0]  # Obtener el primer elemento de la fila como la línea a procesar
+            resultado = estandarizador.estandarizar(linea)  # Obtener el resultado como una lista
+            Dataframe1["cadenas"].append(linea)
+            Dataframe1["tipo"].append(resultado[0])
+            Dataframe1["indicativos_pais"].append(resultado[1])
+            Dataframe1["indicativos_area"].append(resultado[2])
+            Dataframe1["telefonos"].append(resultado[3])
 
-    # Crear un DataFrame con los resultados
-    df = pd.DataFrame(Dataframe1)
+            resultado_str = linea + ";" + ";".join(str(item) for item in resultado)  # Convertir cada elemento en una cadena de texto
+            datos += resultado_str + '\r\n'
 
-    # Mostrar el resultado en una tabla
-    st.write("Resultado:")
-    st.dataframe(df)
+        # Crear un DataFrame con los resultados
+        df = pd.DataFrame(Dataframe1)
 
-    # Crear botón para descargar archivo csv
-    st.download_button('Download CSV', datos, file_name=name + '.csv')
+        # Mostrar el resultado en una tabla
+        st.write("Resultado:")
+        st.dataframe(df)
 
-else:
-    st.warning("Por favor, selecciona un archivo para cargar.")
-st.markdown("</div>", unsafe_allow_html=True)
+        # Crear botón para descargar archivo csv
+        st.download_button('Download CSV', datos, file_name=name + '.csv')
+
+    else:
+        st.warning("Por favor, selecciona un archivo para cargar.")
