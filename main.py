@@ -23,7 +23,13 @@ st.sidebar.markdown("<h1 style='text-align: center; color: white;'>Cargar Archiv
 nombre_archivo = st.sidebar.file_uploader("Selecciona un archivo", type=["txt"])
 
 # Contenedor principal
-st.title("Aplicación para la Estandarización de teléfonos nacionales")
+container = st.container()
+with container:
+    col1 = st.sidebar
+    col2 = st
+    col1.image("LogoAIO.jpeg", caption='ALL IN ONE', use_column_width=True)
+    col1.markdown("<h1 style='text-align: center; color: white;'>Cargar Archivo</h1>", unsafe_allow_html=True)
+    col2.title("Aplicación para la Estandarización de teléfonos nacionales")
 
 Dataframe1 = {
     "cadenas": [],
@@ -61,11 +67,11 @@ if nombre_archivo is not None:
     df = pd.DataFrame(Dataframe1)
 
     # Mostrar el resultado en una tabla
-    st.write("Resultado:")
-    st.dataframe(df)
+    col2.write("Resultado:")
+    col2.dataframe(df)
 
     # Crear botón para descargar archivo csv
-    st.download_button('Download CSV', datos, file_name=name + '.csv')
+    col2.download_button('Download CSV', datos, file_name=name + '.csv')
 
 else:
     st.warning("Por favor, selecciona un archivo para cargar.")
