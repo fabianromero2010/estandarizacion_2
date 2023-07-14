@@ -7,12 +7,10 @@ import pandas as pd
 st.markdown(
     """
     <style>
-    .stSidebar {
-        background-color:  #800000;
+    .main {
+        background-color: #8B0000;
         padding: 20px;
         color: white;
-        height: 100vh;
-        width: 300px;
     }
     </style>
     """,
