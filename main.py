@@ -4,7 +4,7 @@ import csv
 import pandas as pd
 from PIL import Image
 
-image = Image.open('ruta/a/la/imagen.jpg')
+image = Image.open('LogoAIO.jpg')
 st.image(image, caption='Logo de la aplicación', use_column_width=True)
 
 
