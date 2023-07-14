@@ -3,25 +3,6 @@ import estandarizador
 import csv
 import pandas as pd
 
-# Establecer el color de fondo para cada columna
-st.markdown(
-    """
-    <style>
-    .stColumnLeft {
-        background-color: #8B0000;
-        padding: 20px;
-        color: white;
-    }
-    .stColumnRight {
-        background-color: #800000;
-        padding: 20px;
-        color: white;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # Dividir la página en dos columnas
 column_left, column_right = st.beta_columns(2)
 
