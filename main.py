@@ -19,20 +19,17 @@ st.markdown(
 
 # Barra lateral (sidebar)
 st.sidebar.image("LogoAIO.jpeg", caption='ALL IN ONE', use_column_width=True)
-#st.sidebar.markdown("<h1 style='text-align: center; color: black;'>Aquí cargue el archivo</h1>", unsafe_allow_html=True)
+st.sidebar.markdown("<h1 style='text-align: center; color: black;'>Aquí cargue el archivo</h1>", unsafe_allow_html=True)
 #nombre_archivo = st.sidebar.file_uploader("Cargue archivo TXT", type=["txt"], key="file-upload")
-
-
-
-
-# Contenedor principal
-st.markdown("<div class='main'>", unsafe_allow_html=True)
-st.markdown("<h1 style='color: white;'>Aplicación Estandarización de teléfonos nacionales</h1>", unsafe_allow_html=True)
 
 with st.sidebar.form(key='file_upload_form'):
     st.markdown("Cargue archivo TXT")
     nombre_archivo = st.file_uploader(label='Examinar', type=["txt"], accept_multiple_files=False, key="file-upload", help='Limite 200MB')
-    st.form_submit_button(label='Cargar')
+    
+
+# Contenedor principal
+st.markdown("<div class='main'>", unsafe_allow_html=True)
+st.markdown("<h1 style='color: white;'>Aplicación Estandarización de teléfonos nacionales</h1>", unsafe_allow_html=True)
 
 Dataframe1 = {
     "cadenas": [],
