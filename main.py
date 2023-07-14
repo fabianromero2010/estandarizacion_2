@@ -8,7 +8,7 @@ st.markdown(
     """
     <style>
     .main {
-        background-color: #A0522D;
+        background-color: #800000;
         padding: 20px;
         color: white;
     }
@@ -18,20 +18,14 @@ st.markdown(
 )
 
 # Barra lateral (sidebar)
+
 st.sidebar.image("LogoAIO.jpeg", caption='ALL IN ONE', use_column_width=True)
 st.sidebar.markdown("<h1 style='text-align: center; color: white;'>Aqui cargue el Archivo</h1>", unsafe_allow_html=True)
 nombre_archivo = st.sidebar.file_uploader("Selecciona un archivo", type=["txt"])
 
-# Dividir la parte derecha en columnas
-col1, col2 = st.columns(2)
-
 # Contenedor principal
-col1.markdown("<div class='main'>", unsafe_allow_html=True)
+st.title("Aplicación para la Estandarización de teléfonos nacionales")
 
-# Mostrar el título en la parte superior
-col1.markdown("<h1 style='color: white;'>Aplicación para la Estandarización de teléfonos nacionales</h1>", unsafe_allow_html=True)
-
-separador_campos = ';'
 Dataframe1 = {
     "cadenas": [],
     "tipo": [],
@@ -53,14 +47,26 @@ if nombre_archivo is not None:
         Dataframe1["cadenas"].append(linea)
         Dataframe1["tipo"].append(resultado[0])
         Dataframe1["indicativos_pais"].append(resultado[1])
-        Dataframe1["indicativos_area"].append(resultado[2])
-        Dataframe1["telefonos"].append(resultado[3])
+
+        if len(resultado) >= 4:
+            Dataframe1["indicativos_area"].append(resultado[2])
+            Dataframe1["telefonos"].append(resultado[3])
+        else:
+            Dataframe1["indicativos_area"].append(None)
+            Dataframe1["telefonos"].append(None)
 
         resultado_str = linea + ";" + ";".join(str(item) for item in resultado)  # Convertir cada elemento en una cadena de texto
         datos += resultado_str + '\r\n'
 
     # Crear un DataFrame con los resultados
     df = pd.DataFrame(Dataframe1)
+
+    # Dividir la parte derecha en columnas
+    col1, col2 = st.beta_columns(2)
+
+    # Mostrar la imagen y el título en la columna izquierda
+    col1.image("LogoAIO.jpeg", caption='ALL IN ONE', use_column_width=True)
+    col1.markdown("<h1 style='text-align: center; color: white;'>Cargar Archivo</h1>", unsafe_allow_html=True)
 
     # Mostrar el resultado en una tabla en la columna derecha
     col2.title("Resultado:")
@@ -71,6 +77,3 @@ if nombre_archivo is not None:
 
 else:
     st.warning("Por favor, selecciona un archivo para cargar.")
-
-# Cerrar el contenedor principal
-col1.markdown("</div>", unsafe_allow_html=True)
