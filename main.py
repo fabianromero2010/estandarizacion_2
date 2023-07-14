@@ -10,7 +10,7 @@ st.markdown(
     .stSidebar {
         background-color: #8B0000;
         padding: 20px;
-        color: white;
+        color: Red;
         height: 100vh;
         width: 300px;
     }
