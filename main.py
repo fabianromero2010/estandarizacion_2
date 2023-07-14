@@ -24,7 +24,7 @@ nombre_archivo = st.sidebar.file_uploader("Selecciona un archivo", type=["txt"])
 
 
 # Contenedor principal
-st.title("Aplicación Estandarización de teléfonos nacionales")
+st.title("<h1 style='color: red;'>Aplicación Estandarización de teléfonos nacionales</h1>", unsafe_allow_html=True)
 
 Dataframe1 = {
     "cadenas": [],
@@ -65,8 +65,11 @@ if nombre_archivo is not None:
     st.write("Resultado:")
     st.dataframe(df)
 
-    # Crear botón para descargar archivo csv
-    st.download_button('Download CSV', datos, file_name=name + '.csv')
+    # Crear botón para descargar archivo csv con estilo personalizado
+    st.markdown(
+        f'<a href="data:file/csv;base64,{datos}" download="{name}.csv"><button style="background-color: black; color: white;">Download CSV</button></a>',
+        unsafe_allow_html=True
+    )
 
 else:
     st.warning("Por favor, selecciona un archivo para cargar.")
