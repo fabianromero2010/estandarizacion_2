@@ -7,33 +7,33 @@ import pandas as pd
 st.markdown(
     """
     <style>
-    .sidebar {
+    .stSidebar {
         background-color: #8B0000;
         padding: 20px;
         color: white;
-        position: fixed;
-        height: 100%;
         width: 300px;
     }
-    .main {
+    .stMain {
         background-color: #800000;
         padding: 20px;
         color: white;
-        margin-left: 320px;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
+# Crear las columnas
+col1, col2 = st.columns([1, 2])
+
 # Columna de la izquierda (sidebar)
-with st.sidebar:
+with col1:
     st.image("LogoAIO.jpeg", caption='Logo de la aplicación', use_column_width=True)
     st.markdown("<h1 style='text-align: center; color: white;'>Cargar Archivo</h1>", unsafe_allow_html=True)
     nombre_archivo = st.file_uploader("Selecciona un archivo", type=["txt"])
 
 # Columna de la derecha (main)
-with st.container():
+with col2:
     st.title("Aplicación Estandarización de teléfonos nacionales")
 
     Dataframe1 = {
@@ -74,4 +74,4 @@ with st.container():
         st.download_button('Download CSV', datos, file_name=name + '.csv')
 
     else:
-        st.sidebar.warning("Por favor, selecciona un archivo para cargar.")
+        st.warning("Por favor, selecciona un archivo para cargar.")
