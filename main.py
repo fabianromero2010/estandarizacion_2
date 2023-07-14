@@ -8,7 +8,7 @@ st.markdown(
     """
     <style>
     .stSidebar {
-        background-color: #8B0000;
+        background-color:  #800000;
         padding: 20px;
         color: white;
         height: 100vh;
@@ -24,7 +24,7 @@ st.markdown(
     """
     <style>
     .stAppMain {
-        background-color: #FFFFFF;
+        background-color: #800000;
         padding: 20px;
     }
     </style>
