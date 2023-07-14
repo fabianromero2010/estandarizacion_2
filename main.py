@@ -37,7 +37,7 @@ st.markdown("<h1 style='color: white;'>Aplicación para la Estandarización de t
 image = Image.open("LogoSETI.jpeg")
 st.markdown("<div class='image-container'>", unsafe_allow_html=True)
 st.image(image, caption='SETI', width=50)
-st.markdown("</div>", unsafe_allow_html=100)
+
 
 Dataframe1 = {
     "cadenas": [],
