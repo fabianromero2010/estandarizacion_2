@@ -23,7 +23,7 @@ st.sidebar.markdown("<h1 style='text-align: center; color: white;'>Aqui cargue e
 nombre_archivo = st.sidebar.file_uploader("Selecciona un archivo", type=["txt"])
 
 # Dividir la parte derecha en columnas
-col1, col2 = st.beta_columns(2)
+col1, col2 = st.columns(2)
 
 # Contenedor principal
 col1.markdown("<div class='main'>", unsafe_allow_html=True)
