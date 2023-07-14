@@ -28,10 +28,11 @@ col1, col2 = st.columns(2)
 # Contenedor principal
 col1.markdown("<div class='main'>", unsafe_allow_html=True)
 
-# Mostrar el título en la parte principal
-separador_campos = ';'
-st.title("Aplicación Estandarización de telefonos nacionales")
 
+# Mostrar el título y la imagen en la parte principal
+st.markdown("<h1 style='color: white;'>Aplicación para la Estandarización de teléfonos nacionales</h1>", unsafe_allow_html=True)
+
+separador_campos = ';'
 nombre_archivo = st.file_uploader("Selecciona un archivo", type=["txt"])
 
 Dataframe1 = {"cadenas": [],
