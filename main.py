@@ -4,8 +4,8 @@ import csv
 import pandas as pd
 from PIL import Image
 
-image = Image.open('LogoAIO.jpg')
-st.image(image, caption='Logo de la aplicación', use_column_width=True)
+image = Image.open('https://github.com/Alejandra-byte-pixel/estandarizacion/blob/main/LogoAIO.jpg')
+st.image(image, caption='Logo AIO', use_column_width=True)
 
 
 separador_campos = ';'
