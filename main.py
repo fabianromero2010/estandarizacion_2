@@ -23,8 +23,7 @@ st.markdown(
 )
 
 # Crear las columnas con estilos personalizados
-col1 = st.sidebar
-col2, col3 = st.beta_columns((3, 1))
+col1, col2 = st.beta_columns(2)
 
 # Columna de la izquierda (col1)
 with col1:
@@ -75,7 +74,3 @@ with col2:
 
     else:
         st.warning("Por favor, selecciona un archivo para cargar.")
-
-# Columna vacía para separar
-with col3:
-    pass
