@@ -28,6 +28,7 @@ st.markdown(
 # Columna de la izquierda (sidebar)
 with st.sidebar:
     st.image("LogoAIO.jpeg", caption='Logo de la aplicación', use_column_width=True)
+    st.markdown("<h1 style='text-align: center; color: white;'>Cargar Archivo</h1>", unsafe_allow_html=True)
     nombre_archivo = st.file_uploader("Selecciona un archivo", type=["txt"])
 
 # Columna de la derecha (main)
