@@ -18,16 +18,16 @@ st.markdown(
 )
 
 # Dividir la página en dos columnas
-column_left, column_right = st.beta_columns(2)
+columns = st.columns(2)
 
-# Columna de la izquierda (column_left)
-with column_left:
-    st.image("LogoAIO.jpeg", caption='Logo de la aplicación', use_column_width=True)
-    st.title("Cargar Archivo")
-    nombre_archivo = st.file_uploader("Selecciona un archivo", type=["txt"])
+# Columna de la izquierda
+with columns[0].container_class("stColumnLeft"):
+    columns[0].image("LogoAIO.jpeg", caption='Logo de la aplicación', use_column_width=True)
+    columns[0].title("Cargar Archivo")
+    nombre_archivo = columns[0].file_uploader("Selecciona un archivo", type=["txt"])
 
-# Columna de la derecha (column_right)
-with column_right:
+# Columna de la derecha
+with columns[1]:
     st.title("Aplicación Estandarización de teléfonos nacionales")
 
     Dataframe1 = {
