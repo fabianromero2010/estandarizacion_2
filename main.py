@@ -28,20 +28,17 @@ col1, col2 = st.columns(2)
 # Contenedor principal
 col1.markdown("<div class='main'>", unsafe_allow_html=True)
 
-
 # Mostrar el título y la imagen en la parte principal
 st.markdown("<h1 style='color: white;'>Aplicación para la Estandarización de teléfonos nacionales</h1>", unsafe_allow_html=True)
 
 #separador_campos = ';'
-nombre_archivo = st.file_uploader("Selecciona un archivo", type=["txt"])
-
-Dataframe1 = {"cadenas": [],
-    "tipo":[],
+Dataframe1 = {
+    "cadenas": [],
+    "tipo": [],
     "indicativos_pais": [],
     "indicativos_area": [],
-    "telefonos":[]
+    "telefonos": []
 }
-
 
 if nombre_archivo is not None:
     contenido = nombre_archivo.read().decode("utf-8")  # Leer el contenido del archivo
@@ -49,7 +46,7 @@ if nombre_archivo is not None:
 
     datos = "CADENA;TIPO;INDICATIVO_PAIS;INDICATIVO_AREA;TELEFONO" + '\r\n'
     lector_csv = csv.reader(contenido.splitlines())
-    
+
     for fila in lector_csv:
         linea = fila[0]  # Obtener el primer elemento de la fila como la línea a procesar
         resultado = estandarizador.estandarizar(linea)  # Obtener el resultado como una lista
@@ -62,10 +59,7 @@ if nombre_archivo is not None:
         resultado_str = linea + ";" + ";".join(str(item) for item in resultado)  # Convertir cada elemento en una cadena de texto
         datos += resultado_str + '\r\n'
 
-        resultado_str = linea + ";" + ";".join(str(item) for item in resultado)  # Convertir cada elemento en una cadena de texto
-        datos += resultado_str + '\r\n'
-
-     # Crear un DataFrame con los resultados
+    # Crear un DataFrame con los resultados
     df = pd.DataFrame(Dataframe1)
 
     # Mostrar el resultado en una tabla en la columna derecha
