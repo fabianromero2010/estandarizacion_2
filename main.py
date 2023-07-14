@@ -6,14 +6,15 @@ import requests
 from PIL import Image
 import io
 
-# Descargar la imagen desde la URL
-url = 'https://github.com/Alejandra-byte-pixel/estandarizacion/blob/main/LogoAIO.jpg'
+# URL directa de la imagen
+url = 'https://direct-url-to-image.jpg'
+
+# Descargar la imagen desde la URL directa
 response = requests.get(url)
 image = Image.open(io.BytesIO(response.content))
 
 # Mostrar la imagen en tu aplicación
-st.image(image, caption='Logo AIO', use_column_width=True)
-
+st.image(image, caption='Logo de la aplicación', use_column_width=True)
 
 separador_campos = ';'
 st.title("Aplicación Estandarización de telefonos nacionales")
