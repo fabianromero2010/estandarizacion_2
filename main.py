@@ -31,7 +31,7 @@ col1.markdown("<div class='main'>", unsafe_allow_html=True)
 # Mostrar el título y la imagen en la parte principal
 st.markdown("<h1 style='color: white;'>Aplicación para la Estandarización de teléfonos nacionales</h1>", unsafe_allow_html=True)
 
-#separador_campos = ';'
+separador_campos = ';'
 Dataframe1 = {
     "cadenas": [],
     "tipo": [],
