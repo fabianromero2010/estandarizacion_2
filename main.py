@@ -23,16 +23,16 @@ st.markdown(
 )
 
 # Crear las columnas
-column_left, column_right = st.beta_columns(2)
+columns = st.columns(2)
 
 # Columna de la izquierda (column_left)
-with column_left:
+with columns[0]:
     st.image("LogoAIO.jpeg", caption='Logo de la aplicación', use_column_width=True)
     st.markdown("<h1 style='text-align: center;'>Cargar Archivo</h1>", unsafe_allow_html=True)
     nombre_archivo = st.file_uploader("Selecciona un archivo", type=["txt"])
 
 # Columna de la derecha (column_right)
-with column_right:
+with columns[1]:
     st.title("Aplicación Estandarización de teléfonos nacionales")
 
     Dataframe1 = {
