@@ -25,6 +25,7 @@ st.sidebar.markdown("<h1 style='text-align: center; color: black;'>Aquí cargue 
 with st.sidebar.form(key='file_upload_form'):
     st.markdown("Cargue archivo TXT")
     nombre_archivo = st.file_uploader(label='Examinar', type=["txt"], accept_multiple_files=False, key="file-upload", help='Limite 200MB')
+    st.form_submit_button(label='')
     
 
 # Contenedor principal
