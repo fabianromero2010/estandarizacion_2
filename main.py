@@ -20,7 +20,7 @@ st.markdown(
 )
 
 # Barra lateral (sidebar)
-st.sidebar.image("LogoAIO.jpeg", caption='Logo de la aplicación', use_column_width=True)
+st.sidebar.image("LogoAIO.jpeg", caption='ALL IN ONE', use_column_width=True)
 st.sidebar.markdown("<h1 style='text-align: center; color: white;'>Cargar Archivo</h1>", unsafe_allow_html=True)
 nombre_archivo = st.sidebar.file_uploader("Selecciona un archivo", type=["txt"])
 
