@@ -3,7 +3,7 @@ import estandarizador
 import csv
 import pandas as pd
 
-# Establecer el color de fondo para la barra lateral
+# Establecer el color de fondo para cada columna
 st.markdown(
     """
     <style>
@@ -11,20 +11,26 @@ st.markdown(
         background-color: #8B0000;
         padding: 20px;
         color: white;
-        height: 100vh;
-        width: 300px;
+    }
+    .stMain {
+        background-color: #800000;
+        padding: 20px;
+        color: white;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Barra lateral (sidebar)
-st.sidebar.image("LogoAIO.jpeg", caption='Logo de la aplicación', use_column_width=True)
-st.sidebar.markdown("<h1 style='text-align: center; color: white;'>Cargar Archivo</h1>", unsafe_allow_html=True)
-nombre_archivo = st.sidebar.file_uploader("Selecciona un archivo", type=["txt"])
+# Columna de la izquierda (sidebar)
+st.markdown("<div class='stSidebar'>", unsafe_allow_html=True)
+st.image("LogoAIO.jpeg", caption='Logo de la aplicación', use_column_width=True)
+st.markdown("<h1 style='text-align: center;'>Cargar Archivo</h1>", unsafe_allow_html=True)
+nombre_archivo = st.file_uploader("Selecciona un archivo", type=["txt"])
+st.markdown("</div>", unsafe_allow_html=True)
 
-# Contenedor principal
+# Columna de la derecha (main)
+st.markdown("<div class='stMain'>", unsafe_allow_html=True)
 st.title("Aplicación Estandarización de teléfonos nacionales")
 
 Dataframe1 = {
@@ -66,3 +72,4 @@ if nombre_archivo is not None:
 
 else:
     st.warning("Por favor, selecciona un archivo para cargar.")
+st.markdown("</div>", unsafe_allow_html=True)
