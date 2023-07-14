@@ -3,20 +3,6 @@ import estandarizador
 import csv
 import pandas as pd
 
-# Establecer el color de fondo para la barra lateral
-st.markdown(
-    """
-    <style>
-    .main {
-        background-color: #8B0000;
-        padding: 20px;
-        color: white;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # Establecer el color de fondo para la parte derecha
 st.markdown(
     """
@@ -37,7 +23,7 @@ st.sidebar.markdown("<h1 style='text-align: center; color: white;'>Cargar Archiv
 nombre_archivo = st.sidebar.file_uploader("Selecciona un archivo", type=["txt"])
 
 # Contenedor principal
-st.title("Aplicación Estandarización de teléfonos nacionales")
+st.title("Aplicación para la Estandarización de teléfonos nacionales")
 
 Dataframe1 = {
     "cadenas": [],
