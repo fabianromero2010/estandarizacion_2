@@ -29,8 +29,6 @@ col1, col2 = st.columns(2)
 col1.markdown("<div class='main'>", unsafe_allow_html=True)
 
 # Mostrar el título en la parte principal
-col1.markdown("<h1 style='color: white;'>Aplicación Estandarización de teléfonos nacionales</h1>", unsafe_allow_html=True)
-
 separador_campos = ';'
 st.title("Aplicación Estandarización de telefonos nacionales")
 
