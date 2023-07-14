@@ -49,10 +49,9 @@ if nombre_archivo is not None:
 else:
     st.warning("Por favor, selecciona un archivo para cargar.")
 
-# Cargar y mostrar la imagen
+# Cargar y mostrar la imagen en la esquina superior derecha
 image = Image.open("LogoAIO.jpeg")
-st.image(image, caption='Logo de la aplicación', use_column_width=True)
-
+st.image(image, caption='Logo de la aplicación', use_column_width=True, clamp=True, width=200, position='right')
 
 
 #for n in columna:
