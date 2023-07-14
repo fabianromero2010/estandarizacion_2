@@ -64,7 +64,7 @@ if nombre_archivo is not None:
     col1, col2 = st.beta_columns([2, 3])
 
     # Mostrar la imagen y el título uno al lado del otro en la columna izquierda
-    col1.image("LogoAIO.jpeg", caption='ALL IN ONE', use_column_width=True)
+    col2.image("LogoAIO.jpeg", caption='ALL IN ONE', width=100)
     col1.markdown("<h1 style='display: inline-block; color: white;'>Aplicación para la Estandarización de teléfonos nacionales</h1>", unsafe_allow_html=True)
 
     # Mostrar el resultado en una tabla en la columna derecha
