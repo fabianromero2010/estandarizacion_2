@@ -27,7 +27,7 @@ st.markdown("<div class='main'>", unsafe_allow_html=True)
 
 # Mostrar el título y la imagen en la parte principal
 st.markdown("<h1 style='color: white; text-align: center;'>Aplicación para la Estandarización de teléfonos nacionales</h1>", unsafe_allow_html=True)
-st.markdown.image("LogoSETI.jpeg", caption='ALL IN ONE', use_column_width=True)
+st.sidebar.image("LogoSETI.jpeg", caption='ALL IN ONE', use_column_width=True)
 
 Dataframe1 = {
     "cadenas": [],
