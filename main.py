@@ -25,7 +25,7 @@ nombre_archivo = st.sidebar.file_uploader("Selecciona un archivo", type=["txt"])
 
 # Contenedor principal
 st.markdown("<div class='main'>", unsafe_allow_html=True)
-st.markdown("<h1 style='color: black;'>Aplicación Estandarización de teléfonos nacionales</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='color: white;'>Aplicación Estandarización de teléfonos nacionales</h1>", unsafe_allow_html=True)
 
 Dataframe1 = {
     "cadenas": [],
