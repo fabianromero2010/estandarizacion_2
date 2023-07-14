@@ -52,7 +52,6 @@ if nombre_archivo is not None:
         Dataframe1["cadenas"].append(linea)
         Dataframe1["tipo"].append(resultado[0])
         Dataframe1["indicativos_pais"].append(resultado[1])
-
         if len(resultado) >= 4:
             Dataframe1["indicativos_area"].append(resultado[2])
             Dataframe1["telefonos"].append(resultado[3])
