@@ -3,16 +3,14 @@ import estandarizador
 import csv
 import pandas as pd
 
-# Establecer el color de fondo para la barra lateral
+# Establecer el color de fondo para la parte derecha
 st.markdown(
     """
     <style>
-    .stSidebar {
-        background-color: #8B0000;
+    .main {
+        background-color: #A0522D;
         padding: 20px;
         color: white;
-        height: 100vh;
-        width: 300px;
     }
     </style>
     """,
