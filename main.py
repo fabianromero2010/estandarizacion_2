@@ -20,7 +20,7 @@ st.markdown(
 # Barra lateral (sidebar)
 st.sidebar.image("LogoAIO.jpeg", caption='ALL IN ONE', use_column_width=True)
 st.sidebar.markdown("<h1 style='text-align: center; color: black;'>Aquí cargue el archivo</h1>", unsafe_allow_html=True)
-file_path = st.sidebar.text_input("Examinar archivo TXT", type="file", key="file-upload")
+nombre_archivo = st.sidebar.file_uploader("Cargue archivo TXT", type=["txt"], key="file-upload")
 
 # Contenedor principal
 st.markdown("<div class='main'>", unsafe_allow_html=True)
