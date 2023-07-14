@@ -23,9 +23,10 @@ st.markdown(
 st.markdown(
     """
     <style>
-    .stAppMain {
+    .main {
         background-color: #800000;
         padding: 20px;
+        color: white;
     }
     </style>
     """,
