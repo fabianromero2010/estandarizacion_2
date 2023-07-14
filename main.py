@@ -35,7 +35,6 @@ st.markdown("<h1 style='color: white;'>Aplicación para la Estandarización de t
 
 # Alinear la imagen a la derecha en la parte principal
 image = Image.open("LogoSETI.jpeg")
-st.markdown("<div class='image-container'>", unsafe_allow_html=True)
 st.image(image, caption='SETI', width=50)
 
 
