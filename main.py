@@ -2,6 +2,7 @@ import streamlit as st
 import estandarizador
 import csv
 import pandas as pd
+from PIL import Image
 
 separador_campos = ';'
 st.title("Aplicación Estandarización de telefonos nacionales")
