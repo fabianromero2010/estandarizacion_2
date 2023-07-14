@@ -2,25 +2,20 @@ import streamlit as st
 import estandarizador
 import csv
 import pandas as pd
-import requests
 from PIL import Image
-import io
-
-image = Image.open("LogoAIO.jpeg")
-st.image(image, caption='Logo de la aplicación', use_column_width=True)
 
 separador_campos = ';'
-st.title("Aplicación Estandarización de telefonos nacionales")
+st.title("Aplicación Estandarización de teléfonos nacionales")
 
 nombre_archivo = st.file_uploader("Selecciona un archivo", type=["txt"])
 
-Dataframe1 = {"cadenas": [],
-    "tipo":[],
+Dataframe1 = {
+    "cadenas": [],
+    "tipo": [],
     "indicativos_pais": [],
     "indicativos_area": [],
-    "telefonos":[]
+    "telefonos": []
 }
-
 
 if nombre_archivo is not None:
     contenido = nombre_archivo.read().decode("utf-8")  # Leer el contenido del archivo
@@ -28,7 +23,7 @@ if nombre_archivo is not None:
 
     datos = "CADENA;TIPO;INDICATIVO_PAIS;INDICATIVO_AREA;TELEFONO" + '\r\n'
     lector_csv = csv.reader(contenido.splitlines())
-    
+
     for fila in lector_csv:
         linea = fila[0]  # Obtener el primer elemento de la fila como la línea a procesar
         resultado = estandarizador.estandarizar(linea)  # Obtener el resultado como una lista
@@ -38,7 +33,6 @@ if nombre_archivo is not None:
         Dataframe1["indicativos_area"].append(resultado[2])
         Dataframe1["telefonos"].append(resultado[3])
 
-        
         resultado_str = linea + ";" + ";".join(str(item) for item in resultado)  # Convertir cada elemento en una cadena de texto
         datos += resultado_str + '\r\n'
 
@@ -49,12 +43,15 @@ if nombre_archivo is not None:
     st.write("Resultado:")
     st.dataframe(df)
 
-    #Crear botón para descargar archivo csv
-    st.download_button('Download CSV', datos,file_name=name + '.csv')
+    # Crear botón para descargar archivo csv
+    st.download_button('Download CSV', datos, file_name=name + '.csv')
 
 else:
     st.warning("Por favor, selecciona un archivo para cargar.")
 
+# Cargar y mostrar la imagen
+image = Image.open("LogoAIO.jpeg")
+st.image(image, caption='Logo de la aplicación', use_column_width=True)
 
 
 
