@@ -48,7 +48,12 @@ if nombre_archivo is not None:
         Dataframe1["cadenas"].append(linea)
         Dataframe1["tipo"].append(resultado[0])
         Dataframe1["indicativos_pais"].append(resultado[1])
-        Dataframe1["indicativos_area"].append(resultado[2])
+        
+        if len(resultado) >= 3:
+            Dataframe1["indicativos_area"].append(resultado[2])
+        else:
+            Dataframe1["indicativos_area"].append(None)
+        
         Dataframe1["telefonos"].append(resultado[3])
 
         resultado_str = linea + ";" + ";".join(str(item) for item in resultado)  # Convertir cada elemento en una cadena de texto
