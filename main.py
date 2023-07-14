@@ -6,14 +6,7 @@ import requests
 from PIL import Image
 import io
 
-# URL directa de la imagen
-url = 'https://github.com/Alejandra-byte-pixel/estandarizacion/blob/main/LOGO%20SETI.png'
-
-# Descargar la imagen desde la URL directa
-response = requests.get(url)
-image = Image.open(io.BytesIO(response.content))
-
-# Mostrar la imagen en tu aplicación
+image = Image.open("LogoAIO.jpeg")
 st.image(image, caption='Logo de la aplicación', use_column_width=True)
 
 separador_campos = ';'
