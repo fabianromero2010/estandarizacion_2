@@ -7,7 +7,7 @@ from PIL import Image
 import io
 
 # URL directa de la imagen
-url = 'https://direct-url-to-image.jpg'
+url = 'https://github.com/Alejandra-byte-pixel/estandarizacion/blob/main/LOGO%20SETI.png'
 
 # Descargar la imagen desde la URL directa
 response = requests.get(url)
