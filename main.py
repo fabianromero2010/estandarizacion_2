@@ -4,25 +4,21 @@ import csv
 import pandas as pd
 
 # Establecer el color de fondo para cada columna
-st.sidebar.markdown(
+st.markdown(
     """
     <style>
     .sidebar {
         background-color: #8B0000;
         padding: 20px;
         color: white;
+        position: fixed;
+        height: 100%;
     }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-st.markdown(
-    """
-    <style>
     .main {
         background-color: #800000;
         padding: 20px;
         color: white;
+        margin-left: 300px;
     }
     </style>
     """,
@@ -77,4 +73,3 @@ with st.container():
 
     else:
         st.warning("Por favor, selecciona un archivo para cargar.")
-
