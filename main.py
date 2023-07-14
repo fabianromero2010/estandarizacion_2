@@ -50,13 +50,8 @@ if nombre_archivo is not None:
         Dataframe1["cadenas"].append(linea)
         Dataframe1["tipo"].append(resultado[0])
         Dataframe1["indicativos_pais"].append(resultado[1])
-
-        if len(resultado) >= 4:
-            Dataframe1["indicativos_area"].append(resultado[2])
-            Dataframe1["telefonos"].append(resultado[3])
-        else:
-            Dataframe1["indicativos_area"].append(None)
-            Dataframe1["telefonos"].append(None)
+        Dataframe1["indicativos_area"].append(resultado[2])
+        Dataframe1["telefonos"].append(resultado[3])
 
         resultado_str = linea + ";" + ";".join(str(item) for item in resultado)  # Convertir cada elemento en una cadena de texto
         datos += resultado_str + '\r\n'
@@ -69,10 +64,7 @@ if nombre_archivo is not None:
     st.dataframe(df)
 
     # Crear botón para descargar archivo csv con estilo personalizado
-    st.markdown(
-        f'<a href="data:file/csv;base64,{datos}" download="{name}.csv"><button style="background-color: white; color: red;">Descargar archivo CSV </button></a>',
-        unsafe_allow_html=True
-    )
+    st.download_button('Download CSV', datos,file_name=name + '.csv')
 
 else:
     st.markdown("<p style='color: white;'>Por favor, selecciona un archivo para cargar.</p>", unsafe_allow_html=True)
