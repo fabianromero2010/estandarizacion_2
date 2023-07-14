@@ -33,7 +33,7 @@ st.markdown("<div class='main'>", unsafe_allow_html=True)
 # Mostrar el título y la imagen en la parte principal
 st.markdown("<h1 style='color: white;'>Aplicación para la Estandarización de teléfonos nacionales</h1>", unsafe_allow_html=True)
 
-# Alinear la imagen a la derecha en la parte principal
+# Imagen a la derecha en la parte principal
 image = Image.open("LogoSETI.jpeg")
 st.image(image, caption='SETI', width=50)
 
