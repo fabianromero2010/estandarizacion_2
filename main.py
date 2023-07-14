@@ -10,9 +10,22 @@ st.markdown(
     .stSidebar {
         background-color: #8B0000;
         padding: 20px;
-        color: Red;
+        color: white;
         height: 100vh;
         width: 300px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Establecer el color de fondo para la parte derecha
+st.markdown(
+    """
+    <style>
+    .stAppMain {
+        background-color: #FFFFFF;
+        padding: 20px;
     }
     </style>
     """,
