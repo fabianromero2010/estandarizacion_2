@@ -56,6 +56,12 @@ if nombre_archivo is not None:
         Dataframe1["indicativos_area"].append(resultado[2])
         Dataframe1["telefonos"].append(resultado[3])
 
+        if len(resultado) >= 3:
+            Dataframe1["indicativos_area"].append(resultado[2])
+        else:
+            Dataframe1["indicativos_area"].append(None)
+
+        
         resultado_str = linea + ";" + ";".join(str(item) for item in resultado)  # Convertir cada elemento en una cadena de texto
         datos += resultado_str + '\r\n'
 
