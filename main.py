@@ -13,6 +13,10 @@ st.markdown(
         padding: 20px;
         color: white;
     }
+    .image-container {
+        display: flex;
+        justify-content: center;
+    }
     </style>
     """,
     unsafe_allow_html=True
@@ -26,11 +30,15 @@ nombre_archivo = st.sidebar.file_uploader("Selecciona un archivo", type=["txt"])
 # Contenedor principal
 st.markdown("<div class='main'>", unsafe_allow_html=True)
 
-
 # Mostrar el título y la imagen en la parte principal
 st.markdown("<h1 style='color: white;'>Aplicación para la Estandarización de teléfonos nacionales</h1>", unsafe_allow_html=True)
+
+# Centrar la imagen en la parte principal
 image = Image.open("LogoSETI.jpeg")
-st.image(image, caption='SETI',  width=100)
+st.markdown("<div class='image-container'>", unsafe_allow_html=True)
+st.image(image, caption='SETI', width=200)
+st.markdown("</div>", unsafe_allow_html=True)
+
 Dataframe1 = {
     "cadenas": [],
     "tipo": [],
