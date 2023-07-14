@@ -73,7 +73,7 @@ if nombre_archivo is not None:
     )
 
 else:
-    st.warning("Por favor, selecciona un archivo para cargar.")
-
+    st.warning("<span style='color: white;'>Por favor, selecciona un archivo para cargar.</span>", unsafe_allow_html=True)
+    
 # Cerrar el contenedor principal
 st.markdown("</div>", unsafe_allow_html=True)
