@@ -13,12 +13,13 @@ st.markdown(
         color: white;
         position: fixed;
         height: 100%;
+        width: 300px;
     }
     .main {
         background-color: #800000;
         padding: 20px;
         color: white;
-        margin-left: 300px;
+        margin-left: 320px;
     }
     </style>
     """,
@@ -73,4 +74,4 @@ with st.container():
         st.download_button('Download CSV', datos, file_name=name + '.csv')
 
     else:
-        st.warning("Por favor, selecciona un archivo para cargar.")
+        st.sidebar.warning("Por favor, selecciona un archivo para cargar.")
